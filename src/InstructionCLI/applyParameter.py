@@ -1,5 +1,5 @@
-from config import CliConfiguration
-from exception import ParameterNotFoundException, ParameterParsingErrorException
+from .config import CliConfiguration
+from .exception import ParameterNotFoundException, ParameterParsingErrorException
 
 
 def to_bool(value) -> bool:

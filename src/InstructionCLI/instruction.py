@@ -1,6 +1,6 @@
 import sys
 
-from exception import ExecuteInstructionErrorException
+from .exception import ExecuteInstructionErrorException
 
 
 class Instruction:

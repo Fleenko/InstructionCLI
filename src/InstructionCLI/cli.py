@@ -80,8 +80,8 @@
 import re
 import sys
 
-from exception import ExecuteInstructionErrorException, ExpressionParsingErrorException, ParameterNotFoundException, ParameterParsingErrorException
-from instruction import Instruction
+from .exception import ExecuteInstructionErrorException, ExpressionParsingErrorException, ParameterNotFoundException, ParameterParsingErrorException
+from .instruction import Instruction
   
 def printExplanation(string, pos, length, message):
     print("[CLI] Traceback:")

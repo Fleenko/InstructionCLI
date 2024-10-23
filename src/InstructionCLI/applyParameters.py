@@ -1,7 +1,6 @@
 from typing import Type
-from config import CliConfiguration
-from exception import ParameterNotFoundException
-from InstructionCLI.cli import printExplanation
+from .config import CliConfiguration
+from .exception import ParameterNotFoundException
 
 def applyParameters(parametersDict : dict[str, str], configurationClass : Type):
     """

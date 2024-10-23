@@ -11,7 +11,7 @@ def applyParameters(parametersDict : dict[str, str], configurationClass : Type):
         configurationClass (Type): Конфигурационный класс
     """
 
-    from applyParameter import applyParameter
+    from .applyParameter import applyParameter
 
     for parameter in parametersDict:
         isFind = False

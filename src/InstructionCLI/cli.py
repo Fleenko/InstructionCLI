@@ -101,6 +101,16 @@ def cli(args: list[str], firstIstruction: Instruction):
     Returns:
     None
     """
+
+    # Добавляем ковычки
+    for num, arg in enumerate(args):
+        if " " in arg:
+            argHead = re.match(r'[-]{2}(\w+)\s*=\s*', arg)
+            if argHead:
+                pos = argHead.span()
+                args[num] = args[num][:pos[1]] + '"' + args[num][pos[1]:] + '"'
+        args[num] = args[num].replace("'", '"')
+
     cliStr = " ".join(args).strip()
     cliStrOrigin = cliStr
     cursor = 0
@@ -119,7 +129,8 @@ def cli(args: list[str], firstIstruction: Instruction):
         if parameter and parameter.span()[0] == 0:
             parameterName = parameter.group(1)
 
-            parameterWithEqualSign = re.match(r'[-]{2}(\w+)\s*=\s*(\w+)', cliStr)
+            parameterWithEqualSign = re.match(r'[-]{2}(\w+)\s*=\s*(?:"([\w ]+)"|([\w ]+))', cliStr)
+            print(parameterWithEqualSign)
             if parameterWithEqualSign and parameter.span()[0] == parameterWithEqualSign.span()[0]:
                 istructionParameters[parameterName] = parameterWithEqualSign.group(2)
                 istructionParametersPos[parameterName] = cursor

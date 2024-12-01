@@ -129,7 +129,7 @@ def cli(args: list[str], firstIstruction: Instruction):
         if parameter and parameter.span()[0] == 0:
             parameterName = parameter.group(1)
 
-            parameterWithEqualSign = re.match(r'[-]{2}(\w+)\s*=\s*(?:"([\w ]+)"|([\w ]+))', cliStr)
+            parameterWithEqualSign = re.match(r'[-]{2}(\w+)\s*=\s*((?:"[^\'"]+"|[^\'" ]+))', cliStr)
             if parameterWithEqualSign and parameter.span()[0] == parameterWithEqualSign.span()[0]:
                 istructionParameters[parameterName] = parameterWithEqualSign.group(2)
                 istructionParametersPos[parameterName] = cursor
